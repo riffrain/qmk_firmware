@@ -4,7 +4,7 @@ box:
 build:
   steps:
     - script:
-        name: build default keymap.
+        name: build keymap.
         cwd: $WERCKER_SOURCE_DIR
         code: |
           make keyboard=ergodox_ez subproject= $TARGET_KEYMAP
@@ -15,6 +15,10 @@ build:
           mv ergodox_ez_$TARGET_KEYMAP.hex $WERCKER_OUTPUT_DIR/ergodox.hex
 deploy:
   steps:
+    - script:
+        name: setup package
+        code: |
+            apt-get install -y curl
     - script:
         name: put built hex file to bintray.
         code: |
