@@ -1,0 +1,1 @@
+# ErgoDox EZ Default Configuration
