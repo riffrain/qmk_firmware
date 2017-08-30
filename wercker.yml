@@ -1,5 +1,5 @@
 box: 
-  id: jackhumbert/qmk_firmware
+  id: ymotongpoo/qmk_firmware
 
 build:
   steps:
@@ -15,10 +15,6 @@ build:
           mv ergodox_ez_$TARGET_KEYMAP.hex $WERCKER_OUTPUT_DIR/ergodox.hex
 deploy:
   steps:
-    - script:
-        name: setup package
-        code: |
-            apt-get install -y curl
     - script:
         name: put built hex file to bintray.
         code: |
