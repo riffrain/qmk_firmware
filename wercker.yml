@@ -7,7 +7,7 @@ build:
         name: build keymap.
         cwd: $WERCKER_SOURCE_DIR
         code: |
-          make keyboard=ergodox_ez subproject= $TARGET_KEYMAP
+          make keyboard=$KEYBOARD subproject=$SUBPROJECT $TARGET_KEYMAP
     - script:
         name: move built firmware to output dir.
         cwd: $WERCKER_SOURCE_DIR/.build
