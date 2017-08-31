@@ -16,6 +16,11 @@ build:
 deploy:
   steps:
     - script:
+      name: install curl
+      code: |
+        apt-get update
+        apt-get -y install curl
+    - script:
         name: put built hex file to bintray.
         code: |
           curl -T $WERCKER_SOURCE_DIR/ergodox.hex -u$BINTRAY_USERNAME:$BINTRAY_APIKEY https://api.bintray.com/content/$BINTRAY_USERNAME/generic/ergodox.hex/$WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT/ergodox.hex
