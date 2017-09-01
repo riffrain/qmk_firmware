@@ -1,4 +1,4 @@
-box: 
+box:
   id: riffrain/qmk_firmware
 
 build:
