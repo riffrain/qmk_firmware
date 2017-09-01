@@ -36,10 +36,7 @@ deploy:
                         -d '{"list_in_downloads": true}' \
                         -u$BINTRAY_USERNAME:$BINTRAY_APIKEY \
                         https://api.bintray.com/file_metadata/riffrain/generic/$WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT/ergodox.hex
-  after-steps:
-    - theollyr/slack-notifier@1.3.1:
-        url: $SLACK_URL
-        channel: "#experiment"
-        username: wercker
-        branch: master
-        passed_msg: "deploy for qmk_firmware has passed on branch master. <https://dl.bintray.com/riffrain/generic/$WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT/ergodox.hex|Download .hex file>."
+    - script:
+        name: send slack
+        code: |
+            curl -X POST --form 'payload={"channel": "#experiment", "username": "korosuke", "mrkdwn": true, "text": "deploy for qmk_firmware has passed on branch master."}' $SLACK_INCOMING_URL
