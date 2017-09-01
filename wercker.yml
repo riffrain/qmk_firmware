@@ -42,4 +42,4 @@ deploy:
         channel: "#experiment"
         username: wercker
         branch: master
-        passed_msg: "deploy for qmk_firmware by raindrop has passed on branch master. <https://dl.bintray.com/riffrain/generic/{$WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT}/ergodox.hex|Download .hex file>."
+        passed_msg: "qmk_firmwareのビルドに成功しました：<https://dl.bintray.com/riffrain/generic/$WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT/ergodox.hex|Download .hex>."
