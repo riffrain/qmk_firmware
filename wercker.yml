@@ -36,7 +36,8 @@ deploy:
                         -d '{"list_in_downloads": true}' \
                         -u$BINTRAY_USERNAME:$BINTRAY_APIKEY \
                         https://api.bintray.com/file_metadata/riffrain/generic/$WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT/ergodox.hex
+  after-steps:
     - script:
         name: send slack
         code: |
-            curl -X POST --form 'payload={"channel": "#experiment", "username": "korosuke", "mrkdwn": true, "text": "deploy for qmk_firmware has passed on branch master."}' $SLACK_INCOMING_URL
+            curl -X POST --form 'payload={"channel": "#experiment", "username": "korosuke", "mrkdwn": true, "text": "deploy for qmk_firmware has passed on branch master.<http://dl.bintray.com/riffrain/generic/$WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT/ergodox.hex|Download .hex file>"}' $SLACK_INCOMING_URL
