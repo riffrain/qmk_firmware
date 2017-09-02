@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | copy |       | Home |        |      |
  *                                 |Backsp|Delete|------|       |------| Enter  |Space |
- *                                 |ace   |      | paste|       | End  | LFn    |      |
+ *                                 |ace   |      | paste|       | End  |        | LFn  |
  *                                 `--------------------'       `----------------------'
  */
 [MACOS] = KEYMAP(
@@ -84,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                             SFT_T(KC_SLSH), KC_NO, KC_NO, KC_NO,  SFT_T(KC_JYEN),
         KC_CAPS,       MAC_KANA,
         KC_HOME,
-        KC_END, LT(FN, KC_ENT), KC_SPC
+        KC_END, KC_ENT, LT(FN, KC_SPC)
     ),
 
 /* Keymap 1: Windows layer
