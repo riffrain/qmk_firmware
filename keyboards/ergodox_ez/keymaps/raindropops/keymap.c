@@ -13,9 +13,6 @@ enum {
   LEDOFF       // LED off
 };
 
-// BOUNCE
-#define DEBOUNCE 10
-
 // LED Brightness
 #define MY_LED_BRIGHTNESS_LO 15
 #define MY_LED_BRIGHTNESS_HI 50
