@@ -86,10 +86,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define RGBW 1
 
-<<<<<<< HEAD
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE    8
-=======
 /* "debounce" is measured in keyboard scans. Some users reported
  * needing values as high as 15, which was at the time around 50ms.
  * If you don't define it here, the matrix code will default to
