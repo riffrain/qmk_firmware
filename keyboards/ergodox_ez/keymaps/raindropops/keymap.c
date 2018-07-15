@@ -59,32 +59,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   | LAlt |LEDOFF| LWIN | LMAC | Cmd  |                                       | Sft/ |      |      |      | Sft/\ |
  *   `----------------------------------'                                       `-----------------------------------'
  *                                        ,-------------.       ,---------------.
- *                                        | kana | cut  |       | CAPS | Kana   |
+ *                                        | paste | cut  |      | CAPS | TFn   |
  *                                 ,------|------|------|       |------+--------+------.
- *                                 |      |      | copy |       | Home |        |      |
+ *                                 |      |      | copy |       |      |        |      |
  *                                 |Backsp|Delete|------|       |------| Enter  |Space |
- *                                 |ace   |      | paste|       | End  |        | LFn  |
+ *                                 |ace   |      | Kana |       | Kana  |        | LFn  |
  *                                 `--------------------'       `----------------------'
  */
-[MACOS] = KEYMAP(
+[MACOS] = LAYOUT_ergodox(
         // left hand
         KC_ESC,         KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   KC_PAUS,
         KC_TAB,         KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   JA_ENVL,
         KC_LCTL,        KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   JA_HAT,
         KC_LALT,     TGL_LED,      TGL_WIN,TGL_MAC,   KC_LGUI,
-                                               MAC_KANA,          MAC_CUT,
+                                               MAC_PST,          MAC_CUT,
                                                                   MAC_CPY,
-                                               KC_BSPC,KC_DELT,   MAC_PST,
-        // right hand 
+                                               KC_BSPC,KC_DELT,   MAC_KANA,
+        // right hand
         KC_PSCR,      KC_6,   KC_7,   KC_8,   KC_9,   KC_0,      KC_MINS,
         JA_LBRC,   KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,      KC_LBRC,
                     KC_H,   KC_J,   KC_K,   KC_L,   KC_SCLN,   KC_QUOT,
         JA_RBRC,      KC_N,   KC_M,   KC_COMM,KC_DOT, KC_SLSH,  KC_RO,
                             SFT_T(KC_SLSH), KC_NO, KC_NO, KC_NO,  SFT_T(KC_JYEN),
-        KC_CAPS,       MAC_KANA,
-        KC_HOME,
-        KC_END, KC_ENT, LT(FN, KC_SPC)
+        KC_CAPS,   TG(FN),
+        KC_NO,
+        MAC_KANA, KC_ENT, LT(FN, KC_SPC)
     ),
 
 /* Keymap 1: Windows layer
@@ -108,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |      | paste|       | End  | space | LFn  |
  *                                 `--------------------'       `---------------------'
  */
-[WINDOWS] = KEYMAP(
+[WINDOWS] = LAYOUT_ergodox(
         // left hand
         KC_ESC,     KC_1,    KC_2,    KC_3,     KC_4,   KC_5, KC_PAUS,
         KC_TAB,     KC_Q,    KC_W,    KC_E,     KC_R,   KC_T, JA_ENVL,
@@ -151,7 +151,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `--------------------'
  */
 // Functions
-[FN] = KEYMAP(
+[FN] = LAYOUT_ergodox(
        // left hand
        KC_TRNS,       KC_F1,      KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
        KC_TRNS,     KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TG(MOUSE),
@@ -166,10 +166,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_RBRC,
                 KC_LEFT, KC_DOWN,  KC_UP,   KC_RIGHT, KC_TRNS, KC_BSLS,
        KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, RESET, 
+                KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, RESET,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS 
+       KC_TRNS, KC_TRNS, KC_TRNS
     ),
 
 /* Keymap 3: Ten key Layer
@@ -194,7 +194,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `--------------------'
  */
 // TEN KEY
-[TENKEY] = KEYMAP(
+[TENKEY] = LAYOUT_ergodox(
        // left hand
        KC_TRNS ,KC_TRNS ,KC_TRNS ,KC_TRNS ,KC_TRNS ,KC_TRNS ,KC_TRNS,
        KC_TRNS ,KC_TRNS ,KC_TRNS ,KC_TRNS ,KC_TRNS ,KC_TRNS ,KC_TRNS,
@@ -237,7 +237,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `--------------------'
  */
 // Mouse
-[MOUSE] = KEYMAP(
+[MOUSE] = LAYOUT_ergodox(
        // left hand
        KC_TRNS,       KC_F1,      KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
        KC_TRNS,     KC_TRNS,      KC_TRNS,    KC_MS_U, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -279,7 +279,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |      |      |       |      |      |      |
  *                                 `--------------------'       `--------------------'
  */
-[LEDOFF] = KEYMAP(
+[LEDOFF] = LAYOUT_ergodox(
        // left hand
        KC_TRNS,     KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS,     KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -294,7 +294,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                 KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, 
+                KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS
@@ -373,4 +373,4 @@ void matrix_scan_user(void) {
     if (host_keyboard_leds() & (1<<USB_LED_CAPS_LOCK)) {
       ergodox_right_led_1_on();
     }
-};
+}
