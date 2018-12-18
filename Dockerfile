@@ -1,24 +1,29 @@
-FROM debian:stretch
-MAINTAINER riffrain
+FROM debian
 
-RUN apt-get update && apt-get install --no-install-recommends -y build-essential \
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    avr-libc \
+    avrdude \
+    binutils-arm-none-eabi \
+    binutils-avr \
+    build-essential \
+    dfu-programmer \
+    dfu-util \
     gcc \
+    gcc-arm-none-eabi \
+    gcc-avr \
+    git \
+    libnewlib-arm-none-eabi \
+    software-properties-common \
     unzip \
     wget \
     zip \
-    gcc-avr \
-    binutils-avr \
-    avr-libc \
-    dfu-programmer \
-    dfu-util \
-    gcc-arm-none-eabi \
-    binutils-arm-none-eabi \
-    libnewlib-arm-none-eabi \
-    git \
-    software-properties-common \
-    avrdude \
-    curl \
     && rm -rf /var/lib/apt/lists/*
 
-VOLUME /qmk
-WORKDIR /qmk
+ENV KEYBOARD=ergodox_ez
+ENV KEYMAP=default
+
+VOLUME /qmk_firmware
+WORKDIR /qmk_firmware
+COPY . .
+
+CMD make $KEYBOARD:$KEYMAP
